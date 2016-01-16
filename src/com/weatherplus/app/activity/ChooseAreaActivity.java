@@ -40,6 +40,11 @@ public class ChooseAreaActivity extends Activity {
 	private List<String> dataList = new ArrayList<String>();
 	
 	/**
+	* 是否从WeatherActivity中跳转过来。
+	*/
+	private boolean isFromWeatherActivity;
+	
+	/**
 	* 省列表
 	*/
 	private List<Province> provinceList;
@@ -72,9 +77,14 @@ public class ChooseAreaActivity extends Activity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.choose_area);
 		
+		//获取是否从天气活动跳转过来的标志信息
+		isFromWeatherActivity = getIntent().getBooleanExtra("from_weather_activity", false);
+		
 		//获取本地存储的数据
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-		if (prefs.getBoolean("city_selected", false)) {
+		
+		if (prefs.getBoolean("city_selected", false) && !isFromWeatherActivity) {// 已经选择了城市且不是从WeatherActivity跳转过来，才会直接跳转到WeatherActivity
+			
 			Intent intent = new Intent(this, WeatherActivity.class);
 			startActivity(intent);
 			finish();
@@ -278,6 +288,10 @@ public class ChooseAreaActivity extends Activity {
 		} else if (currentLevel == LEVEL_CITY) {
 			queryProvinces();
 		} else {
+			if (isFromWeatherActivity) {
+				Intent intent = new Intent(this, WeatherActivity.class);
+				startActivity(intent);
+			}
 			finish();
 		}
 	}
