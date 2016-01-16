@@ -11,17 +11,20 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-
+/**
+ * æ•°æ®åº“å¸®åŠ©ç±»ï¼ˆå¸¸ç”¨æ•°æ®åº“æ“ä½œï¼‰
+ * @author fozero
+ */
 public class WeatherPlusDB {
 
 	
 	/**
-	* Êı¾İ¿âÃû
+	* æ•°æ®åº“å
 	*/
 	public static final String DB_NAME = "weather_plus";
 	
 	/**
-	* Êı¾İ¿â°æ±¾
+	* æ•°æ®åº“ç‰ˆæœ¬
 	*/
 	public static final int VERSION = 1;
 	
@@ -29,7 +32,7 @@ public class WeatherPlusDB {
 	private SQLiteDatabase db;
 	
 	/**
-	* ½«¹¹Ôì·½·¨Ë½ÓĞ»¯
+	* å°†æ„é€ æ–¹æ³•ç§æœ‰åŒ–
 	*/
 	private WeatherPlusDB(Context context) {
 		WeatherPlusOpenHelper dbHelper = new WeatherPlusOpenHelper(context,DB_NAME, null, VERSION);
@@ -37,7 +40,7 @@ public class WeatherPlusDB {
 	}
 	
 	/**
-	* »ñÈ¡WeatherPlusDBµÄÊµÀı¡£
+	* è·å–WeatherPlusDBçš„å®ä¾‹ã€‚
 	*/
 	public synchronized static WeatherPlusDB getInstance(Context context) {
 		if (weatherPlusDB == null) {
@@ -47,7 +50,7 @@ public class WeatherPlusDB {
 	}
 	
 	/**
-	* ½«ProvinceÊµÀı´æ´¢µ½Êı¾İ¿â¡£
+	* å°†Provinceå®ä¾‹å­˜å‚¨åˆ°æ•°æ®åº“ã€‚
 	*/
 	public void saveProvince(Province province) {
 		if (province != null) {
@@ -59,7 +62,7 @@ public class WeatherPlusDB {
 	}
 	
 	/**
-	* ´ÓÊı¾İ¿â¶ÁÈ¡È«¹úËùÓĞµÄÊ¡·İĞÅÏ¢¡£
+	* ä»æ•°æ®åº“è¯»å–å…¨å›½æ‰€æœ‰çš„çœä»½ä¿¡æ¯ã€‚
 	*/
 	public List<Province> loadProvinces() {
 		List<Province> list = new ArrayList<Province>();
@@ -77,7 +80,7 @@ public class WeatherPlusDB {
 	}
 	
 	/**
-	* ½«CityÊµÀı´æ´¢µ½Êı¾İ¿â¡£
+	* å°†Cityå®ä¾‹å­˜å‚¨åˆ°æ•°æ®åº“ã€‚
 	*/
 	public void saveCity(City city) {
 		if (city != null) {
@@ -91,7 +94,7 @@ public class WeatherPlusDB {
 	
 	
 	/**
-	* ´ÓÊı¾İ¿â¶ÁÈ¡Ä³Ê¡ÏÂËùÓĞµÄ³ÇÊĞĞÅÏ¢¡£
+	* ä»æ•°æ®åº“è¯»å–æŸçœä¸‹æ‰€æœ‰çš„åŸå¸‚ä¿¡æ¯ã€‚
 	*/
 	public List<City> loadCities(int provinceId) {
 		List<City> list = new ArrayList<City>();
@@ -111,7 +114,7 @@ public class WeatherPlusDB {
 	
 	
 	/**
-	* ½«CountyÊµÀı´æ´¢µ½Êı¾İ¿â¡£
+	* å°†Countyå®ä¾‹å­˜å‚¨åˆ°æ•°æ®åº“ã€‚
 	*/
 	public void saveCounty(County county) {
 		if (county != null) {
@@ -124,7 +127,7 @@ public class WeatherPlusDB {
 	}
 	
 	/**
-	* ´ÓÊı¾İ¿â¶ÁÈ¡Ä³³ÇÊĞÏÂËùÓĞµÄÏØĞÅÏ¢¡£
+	* ä»æ•°æ®åº“è¯»å–æŸåŸå¸‚ä¸‹æ‰€æœ‰çš„å¿ä¿¡æ¯ã€‚
 	*/
 	public List<County> loadCounties(int cityId) {
 		List<County> list = new ArrayList<County>();

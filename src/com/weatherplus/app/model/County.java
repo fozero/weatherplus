@@ -1,7 +1,7 @@
 package com.weatherplus.app.model;
 /**
- * ÏØ¼¶³ÇÊĞ¶ÔÓ¦ÊµÌåÀà
- * @author SKY
+ * å¿çº§åŸå¸‚å¯¹åº”å®ä½“ç±»
+ * @author fozero
  */
 public class County {
 

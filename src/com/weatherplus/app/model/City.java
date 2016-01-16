@@ -1,7 +1,7 @@
 package com.weatherplus.app.model;
 /**
- * 城市对应实体类
- * @author SKY
+ * 鍩庡競瀵瑰簲鐨勫疄浣撶被
+ * @author fozero
  */
 public class City {
 

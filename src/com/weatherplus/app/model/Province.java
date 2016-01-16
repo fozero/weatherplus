@@ -1,7 +1,7 @@
 package com.weatherplus.app.model;
 /**
- * 省份实体类
- * @author SKY
+ * 鐪佷唤瀵瑰簲鐨勫疄浣撶被
+ * @author fozero
  */
 public class Province {
 
