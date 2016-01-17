@@ -1,5 +1,6 @@
 package com.weatherplus.app.activity;
 import com.weatherplus.app.R;
+import com.weatherplus.app.service.AutoUpdateService;
 import com.weatherplus.app.util.HttpCallbackListener;
 import com.weatherplus.app.util.HttpUtil;
 import com.weatherplus.app.util.Utility;
@@ -193,6 +194,11 @@ public class WeatherActivity extends Activity implements OnClickListener{
 			
 			weatherInfoLayout.setVisibility(View.VISIBLE);
 			cityNameText.setVisibility(View.VISIBLE);
+			
+			//开启天气自动更新服务
+			Intent intent = new Intent(this, AutoUpdateService.class);
+			startService(intent);
+			
 		}
 	
 }
